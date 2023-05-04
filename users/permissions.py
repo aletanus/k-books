@@ -8,3 +8,13 @@ class IsAllowedForCollaboratorsOrStudentsOnlyOfHisOwn(permissions.BasePermission
         elif request.user.is_authenticated and obj.student and obj == request.user:
             return True
         return False
+
+
+class IsAccountCollaborator(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.user.is_authenticated and request.user.is_superuser
+
+
+class IsAccountStudent(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return request.user.is_authenticated and request.user.student
