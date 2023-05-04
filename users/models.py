@@ -8,4 +8,5 @@ class Users(AbstractUser):
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=122)
     student = models.BooleanField(default=False)
+    blocked = models.BooleanField(default=False)
  
