@@ -22,7 +22,12 @@ class IsAccountStudent(permissions.BasePermission):
 
 class IsStudentOrCollaboratorViewingStudents(permissions.BasePermission):
     def has_permission(self, request, view):
-        return (
-            request.user.is_authenticated
-            and (request.user.student or request.user.is_superuser)
-        )
+        if request.method in permissions.SAFE_METHODS:
+            return (
+                request.user.is_authenticated
+                and (request.user.student or request.user.is_superuser)
+            )
+        else:
+            return (
+                request.user.is_authenticated and request.user.is_superuser
+            )
