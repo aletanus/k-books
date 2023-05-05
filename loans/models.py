@@ -20,7 +20,7 @@ class Loan(models.Model):
 @receiver(post_save, sender=Loan)
 def set_user_bloked(sender, instance, created, **kwargs):
     if created:
-        if instance.user.bloked:
+        if instance.user.blocked:
             return
         if instance.date_return and datetime.now() > instance.date_return:
             instance.user.blocked = True
