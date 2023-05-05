@@ -14,7 +14,7 @@ class LoanView(generics.ListCreateAPIView):
     permission_classes = [IsStudentOrCollaboratorViewingStudents]
     
     def create(self, request, *arg, **kwargs):
-        copy = get_object_or_404(Copy, pk=request.data['copy'])
+        copy = get_object_or_404(Copy, pk=request.data['copy_id'])
         if copy.total_book == 0:
             return Response({'error': 'This book is not available for loan.'}, status=status.HTTP_400_BAD_REQUEST)
         copy.total_book -= 1	
