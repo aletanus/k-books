@@ -18,3 +18,11 @@ class IsAccountCollaborator(permissions.BasePermission):
 class IsAccountStudent(permissions.BasePermission):
     def has_permission(self, request, view):
         return request.user.is_authenticated and request.user.student
+
+
+class IsStudentOrCollaboratorViewingStudents(permissions.BasePermission):
+    def has_permission(self, request, view):
+        return (
+            request.user.is_authenticated
+            and (request.user.student or request.user.is_superuser)
+        )
