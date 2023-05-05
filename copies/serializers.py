@@ -11,7 +11,7 @@ class CopySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Copy
-        fields = ["id", "total_book", "period_loan", "book", "users"]
+        fields = ["id", "total_book", "period_loan", "book", "book_id", "users"]
         
     def update(self, instance, validated_data):
         instance = super().update(instance, validated_data)
