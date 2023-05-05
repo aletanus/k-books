@@ -1,6 +1,6 @@
 from django.db import models
 from django.dispatch import receiver
-
+from django.contrib import messages
 from copies.models import Copy
 from users.models import Users
 from datetime import datetime, timedelta
@@ -20,8 +20,12 @@ class Loan(models.Model):
 @receiver(post_save, sender=Loan)
 def set_user_bloked(sender, instance, created, **kwargs):
     if created:
-        if instance.user.bloked:
+        if instance.user.blocked:
             return
         if instance.date_return and datetime.now() > instance.date_return:
             instance.user.blocked = True
             instance.user.save()
+            messages.error(
+                instance.user, 
+                f"Você foi bloqueado por atraso na devolução do livro {instance.copy.title}."
+            )
