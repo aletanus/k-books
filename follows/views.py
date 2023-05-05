@@ -24,3 +24,4 @@ class FollowDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return Follow.objects.filter(user=self.request.user)
+    
