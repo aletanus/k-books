@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "drf_spectacular",
     "books",
     "copies",
     "users",
@@ -140,5 +141,15 @@ SIMPLE_JWT = {
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
       'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'K-Book API',
+    'DESCRIPTION': 'K-Book API é uma API desenvolvida para gerenciar o empréstimo de livros e o acompanhamento de leituras em uma biblioteca ou ambiente acadêmico.\n'
+                   'A API permite aos usuários (estudantes e colaboradores) gerenciar suas informações pessoais, empréstimos de livros, e seguir livros de seu interesse.\n'
+                   'A API também permite que os colaboradores gerenciem cópias de livros e registrem empréstimos para os estudantes.',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
 }
