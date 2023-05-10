@@ -7,7 +7,7 @@ from loans.models import Loan
 from loans.serializers import LoanSerializer
 from users.permissions import IsStudentOrCollaboratorViewingStudents
 from django.utils import timezone
-
+from datetime import date, timedelta
 
 class LoanView(generics.ListCreateAPIView):
     queryset = Loan.objects.all()

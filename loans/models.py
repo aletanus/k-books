@@ -26,9 +26,15 @@ def set_user_bloked(sender, instance, created, **kwargs):
         if instance.user.blocked:
             return
         if instance.date_return and datetime.now() > instance.date_return:
+            blocked_until = datetime.now() + timedelta(days=3)
             instance.user.blocked = True
+            instance.user.blocked_date = blocked_until
             instance.user.save()
             messages.error(
                 instance.user,
                 f"Você foi bloqueado por atraso na devolução do livro {instance.copy.title}.",
             )
+    if instance.date_return is not None and instance.user.blocked:
+       instance.user.blocked = False
+       instance.user.blocked_date = None
+       instance.user.save()
