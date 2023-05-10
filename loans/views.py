@@ -15,9 +15,12 @@ class LoanView(generics.ListCreateAPIView):
     permission_classes = [IsStudentOrCollaboratorViewingStudents]
 
     def create(self, request, *arg, **kwargs):
-        copy = get_object_or_404(Copy, pk=request.data['copy_id'])
+        copy = get_object_or_404(Copy, pk=request.data["copy_id"])
         if copy.total_book == 0:
-            return Response({'error': 'This book is not available for loan.'}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                {"error": "This book is not available for loan."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
         copy.total_book -= 1
         copy.save()
         serializer = LoanSerializer(data=request.data)
@@ -34,7 +37,6 @@ class LoanView(generics.ListCreateAPIView):
             return Loan.objects.none()
 
     def perform_create(self, serializer):
-
         return super().perform_create(serializer)
 
 
@@ -50,7 +52,9 @@ class LoansByUserView(ListAPIView):
 
     def get_queryset(self):
         user_id = self.kwargs["user_id"]
-        if self.request.user.is_superuser or (self.request.user.student and user_id == self.request.user.id):
+        if self.request.user.is_superuser or (
+            self.request.user.student and user_id == self.request.user.id
+        ):
             return Loan.objects.filter(user_id=user_id)
         return Loan.objects.none()
 
@@ -58,7 +62,7 @@ class LoansByUserView(ListAPIView):
 class LoanReturnView(generics.UpdateAPIView):
     queryset = Loan.objects.all()
     serializer_class = LoanSerializer
-    lookup_field = 'pk'
+    lookup_field = "pk"
 
     def update(self, request, *args, **kwargs):
         instance = self.get_object()

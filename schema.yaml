@@ -9,9 +9,9 @@ info:
 paths:
   /api/books/:
     get:
-      operationId: books_list
+      operationId: api_books_list
       tags:
-      - books
+      - api
       security:
       - jwtAuth: []
       responses:
@@ -24,9 +24,9 @@ paths:
                   $ref: '#/components/schemas/Book'
           description: ''
     post:
-      operationId: books_create
+      operationId: api_books_create
       tags:
-      - books
+      - api
       requestBody:
         content:
           application/json:
@@ -50,7 +50,7 @@ paths:
           description: ''
   /api/books/{id}:
     get:
-      operationId: books_retrieve
+      operationId: api_books_retrieve
       parameters:
       - in: path
         name: id
@@ -58,7 +58,7 @@ paths:
           type: integer
         required: true
       tags:
-      - books
+      - api
       security:
       - jwtAuth: []
       responses:
@@ -69,7 +69,7 @@ paths:
                 $ref: '#/components/schemas/Book'
           description: ''
     put:
-      operationId: books_update
+      operationId: api_books_update
       parameters:
       - in: path
         name: id
@@ -77,7 +77,7 @@ paths:
           type: integer
         required: true
       tags:
-      - books
+      - api
       requestBody:
         content:
           application/json:
@@ -100,7 +100,7 @@ paths:
                 $ref: '#/components/schemas/Book'
           description: ''
     patch:
-      operationId: books_partial_update
+      operationId: api_books_partial_update
       parameters:
       - in: path
         name: id
@@ -108,7 +108,7 @@ paths:
           type: integer
         required: true
       tags:
-      - books
+      - api
       requestBody:
         content:
           application/json:
@@ -130,7 +130,7 @@ paths:
                 $ref: '#/components/schemas/Book'
           description: ''
     delete:
-      operationId: books_destroy
+      operationId: api_books_destroy
       parameters:
       - in: path
         name: id
@@ -138,7 +138,7 @@ paths:
           type: integer
         required: true
       tags:
-      - books
+      - api
       security:
       - jwtAuth: []
       responses:
@@ -146,9 +146,9 @@ paths:
           description: No response body
   /api/copies/:
     get:
-      operationId: copies_list
+      operationId: api_copies_list
       tags:
-      - copies
+      - api
       security:
       - jwtAuth: []
       - {}
@@ -162,9 +162,9 @@ paths:
                   $ref: '#/components/schemas/Copy'
           description: ''
     post:
-      operationId: copies_create
+      operationId: api_copies_create
       tags:
-      - copies
+      - api
       requestBody:
         content:
           application/json:
@@ -189,7 +189,7 @@ paths:
           description: ''
   /api/copies/{id}:
     get:
-      operationId: copies_retrieve
+      operationId: api_copies_retrieve
       parameters:
       - in: path
         name: id
@@ -197,7 +197,7 @@ paths:
           type: integer
         required: true
       tags:
-      - copies
+      - api
       security:
       - jwtAuth: []
       - {}
@@ -209,7 +209,7 @@ paths:
                 $ref: '#/components/schemas/Copy'
           description: ''
     put:
-      operationId: copies_update
+      operationId: api_copies_update
       parameters:
       - in: path
         name: id
@@ -217,7 +217,7 @@ paths:
           type: integer
         required: true
       tags:
-      - copies
+      - api
       requestBody:
         content:
           application/json:
@@ -241,7 +241,7 @@ paths:
                 $ref: '#/components/schemas/Copy'
           description: ''
     patch:
-      operationId: copies_partial_update
+      operationId: api_copies_partial_update
       parameters:
       - in: path
         name: id
@@ -249,7 +249,7 @@ paths:
           type: integer
         required: true
       tags:
-      - copies
+      - api
       requestBody:
         content:
           application/json:
@@ -272,7 +272,7 @@ paths:
                 $ref: '#/components/schemas/Copy'
           description: ''
     delete:
-      operationId: copies_destroy
+      operationId: api_copies_destroy
       parameters:
       - in: path
         name: id
@@ -280,7 +280,7 @@ paths:
           type: integer
         required: true
       tags:
-      - copies
+      - api
       security:
       - jwtAuth: []
       - {}
@@ -289,9 +289,9 @@ paths:
           description: No response body
   /api/follows/:
     get:
-      operationId: follows_list
+      operationId: api_follows_list
       tags:
-      - follows
+      - api
       security:
       - jwtAuth: []
       responses:
@@ -304,9 +304,9 @@ paths:
                   $ref: '#/components/schemas/Follow'
           description: ''
     post:
-      operationId: follows_create
+      operationId: api_follows_create
       tags:
-      - follows
+      - api
       requestBody:
         content:
           application/json:
@@ -330,7 +330,7 @@ paths:
           description: ''
   /api/follows/{id}:
     get:
-      operationId: follows_retrieve
+      operationId: api_follows_retrieve
       parameters:
       - in: path
         name: id
@@ -338,7 +338,7 @@ paths:
           type: integer
         required: true
       tags:
-      - follows
+      - api
       security:
       - jwtAuth: []
       responses:
@@ -349,7 +349,7 @@ paths:
                 $ref: '#/components/schemas/Follow'
           description: ''
     put:
-      operationId: follows_update
+      operationId: api_follows_update
       parameters:
       - in: path
         name: id
@@ -357,7 +357,7 @@ paths:
           type: integer
         required: true
       tags:
-      - follows
+      - api
       requestBody:
         content:
           application/json:
@@ -380,7 +380,7 @@ paths:
                 $ref: '#/components/schemas/Follow'
           description: ''
     patch:
-      operationId: follows_partial_update
+      operationId: api_follows_partial_update
       parameters:
       - in: path
         name: id
@@ -388,7 +388,7 @@ paths:
           type: integer
         required: true
       tags:
-      - follows
+      - api
       requestBody:
         content:
           application/json:
@@ -410,7 +410,7 @@ paths:
                 $ref: '#/components/schemas/Follow'
           description: ''
     delete:
-      operationId: follows_destroy
+      operationId: api_follows_destroy
       parameters:
       - in: path
         name: id
@@ -418,7 +418,7 @@ paths:
           type: integer
         required: true
       tags:
-      - follows
+      - api
       security:
       - jwtAuth: []
       responses:
@@ -426,9 +426,9 @@ paths:
           description: No response body
   /api/loans/:
     get:
-      operationId: loans_list
+      operationId: api_loans_list
       tags:
-      - loans
+      - api
       security:
       - jwtAuth: []
       responses:
@@ -441,9 +441,9 @@ paths:
                   $ref: '#/components/schemas/Loan'
           description: ''
     post:
-      operationId: loans_create
+      operationId: api_loans_create
       tags:
-      - loans
+      - api
       requestBody:
         content:
           application/json:
@@ -467,7 +467,7 @@ paths:
           description: ''
   /api/loans/{id}:
     get:
-      operationId: loans_retrieve
+      operationId: api_loans_retrieve
       parameters:
       - in: path
         name: id
@@ -475,7 +475,7 @@ paths:
           type: integer
         required: true
       tags:
-      - loans
+      - api
       security:
       - jwtAuth: []
       responses:
@@ -486,7 +486,7 @@ paths:
                 $ref: '#/components/schemas/Loan'
           description: ''
     put:
-      operationId: loans_update
+      operationId: api_loans_update
       parameters:
       - in: path
         name: id
@@ -494,7 +494,7 @@ paths:
           type: integer
         required: true
       tags:
-      - loans
+      - api
       requestBody:
         content:
           application/json:
@@ -517,7 +517,7 @@ paths:
                 $ref: '#/components/schemas/Loan'
           description: ''
     patch:
-      operationId: loans_partial_update
+      operationId: api_loans_partial_update
       parameters:
       - in: path
         name: id
@@ -525,7 +525,7 @@ paths:
           type: integer
         required: true
       tags:
-      - loans
+      - api
       requestBody:
         content:
           application/json:
@@ -547,7 +547,7 @@ paths:
                 $ref: '#/components/schemas/Loan'
           description: ''
     delete:
-      operationId: loans_destroy
+      operationId: api_loans_destroy
       parameters:
       - in: path
         name: id
@@ -555,15 +555,79 @@ paths:
           type: integer
         required: true
       tags:
-      - loans
+      - api
       security:
       - jwtAuth: []
       responses:
         '204':
           description: No response body
+  /api/loans/{id}/update-date-return/:
+    put:
+      operationId: api_loans_update_date_return_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Loan'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Loan'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Loan'
+        required: true
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Loan'
+          description: ''
+    patch:
+      operationId: api_loans_update_date_return_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedLoan'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedLoan'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedLoan'
+      security:
+      - jwtAuth: []
+      - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Loan'
+          description: ''
   /api/loans/user/{user_id}/:
     get:
-      operationId: loans_user_list
+      operationId: api_loans_user_list
       parameters:
       - in: path
         name: user_id
@@ -571,7 +635,7 @@ paths:
           type: integer
         required: true
       tags:
-      - loans
+      - api
       security:
       - jwtAuth: []
       responses:
@@ -585,9 +649,9 @@ paths:
           description: ''
   /api/users/:
     post:
-      operationId: users_create
+      operationId: api_users_create
       tags:
-      - users
+      - api
       requestBody:
         content:
           application/json:
@@ -612,7 +676,7 @@ paths:
           description: ''
   /api/users/{id}/:
     get:
-      operationId: users_retrieve
+      operationId: api_users_retrieve
       parameters:
       - in: path
         name: id
@@ -620,7 +684,7 @@ paths:
           type: integer
         required: true
       tags:
-      - users
+      - api
       security:
       - jwtAuth: []
       - {}
@@ -628,7 +692,7 @@ paths:
         '200':
           description: No response body
     put:
-      operationId: users_update
+      operationId: api_users_update
       parameters:
       - in: path
         name: id
@@ -636,7 +700,7 @@ paths:
           type: integer
         required: true
       tags:
-      - users
+      - api
       security:
       - jwtAuth: []
       - {}
@@ -644,7 +708,7 @@ paths:
         '200':
           description: No response body
     patch:
-      operationId: users_partial_update
+      operationId: api_users_partial_update
       parameters:
       - in: path
         name: id
@@ -652,7 +716,7 @@ paths:
           type: integer
         required: true
       tags:
-      - users
+      - api
       security:
       - jwtAuth: []
       - {}
@@ -660,7 +724,7 @@ paths:
         '200':
           description: No response body
     delete:
-      operationId: users_destroy
+      operationId: api_users_destroy
       parameters:
       - in: path
         name: id
@@ -668,7 +732,7 @@ paths:
           type: integer
         required: true
       tags:
-      - users
+      - api
       security:
       - jwtAuth: []
       - {}
@@ -677,12 +741,12 @@ paths:
           description: No response body
   /api/users/login/:
     post:
-      operationId: users_login_create
+      operationId: api_users_login_create
       description: |-
         Takes a set of user credentials and returns an access and refresh JSON web
         token pair to prove the authentication of those credentials.
       tags:
-      - users
+      - api
       requestBody:
         content:
           application/json:
@@ -718,6 +782,16 @@ components:
           maxLength: 255
         launch:
           type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        pdf:
+          type: string
+          format: uri
+          nullable: true
+        json_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
         users:
           type: array
           items:
@@ -737,8 +811,12 @@ components:
           readOnly: true
         total_book:
           type: integer
+          maximum: 2147483647
+          minimum: -2147483648
         period_loan:
           type: integer
+          maximum: 2147483647
+          minimum: -2147483648
         book:
           allOf:
           - $ref: '#/components/schemas/Book'
@@ -828,6 +906,16 @@ components:
           maxLength: 255
         launch:
           type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        pdf:
+          type: string
+          format: uri
+          nullable: true
+        json_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
         users:
           type: array
           items:
@@ -841,8 +929,12 @@ components:
           readOnly: true
         total_book:
           type: integer
+          maximum: 2147483647
+          minimum: -2147483648
         period_loan:
           type: integer
+          maximum: 2147483647
+          minimum: -2147483648
         book:
           allOf:
           - $ref: '#/components/schemas/Book'

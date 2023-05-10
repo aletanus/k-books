@@ -97,9 +97,9 @@ DATABASES = {
         "PORT": os.getenv("POSTGRES_DB_PORT"),
     },
     "sqlite3": {
-         "ENGINE": "django.db.backends.sqlite3",
-         "NAME": BASE_DIR / "db.sqlite3",
-    }
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    },
 }
 
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -111,12 +111,10 @@ if DATABASE_URL:
     DATABASES["default"].update(db_from_env)
     DEBUG = False
 
-    
+
 if not DEBUG:
     STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-    STATICFILES_STORAGE = (
-        "whitenoise.storage.CompressedManifestStaticFilesStorage"
-    )
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -158,30 +156,27 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "users.Users"
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=14),
-
-    'ALGORITHM': 'HS256',
-    'SIGNING_KEY': SECRET_KEY,
-
-    'AUTH_HEADER_TYPES': ('Bearer',),
-    'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
-
-    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',)
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=7),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=14),
+    "ALGORITHM": "HS256",
+    "SIGNING_KEY": SECRET_KEY,
+    "AUTH_HEADER_TYPES": ("Bearer",),
+    "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
+    "AUTH_TOKEN_CLASSES": ("rest_framework_simplejwt.tokens.AccessToken",),
 }
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-      'rest_framework_simplejwt.authentication.JWTAuthentication',
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
     ),
-    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 SPECTACULAR_SETTINGS = {
-    'TITLE': 'K-Book API',
-    'DESCRIPTION': 'K-Book API é uma API desenvolvida para gerenciar o empréstimo de livros e o acompanhamento de leituras em uma biblioteca ou ambiente acadêmico.\n'
-                   'A API permite aos usuários (estudantes e colaboradores) gerenciar suas informações pessoais, empréstimos de livros, e seguir livros de seu interesse.\n'
-                   'A API também permite que os colaboradores gerenciem cópias de livros e registrem empréstimos para os estudantes.',
-    'VERSION': '1.0.0',
-    'SERVE_INCLUDE_SCHEMA': False,
+    "TITLE": "K-Book API",
+    "DESCRIPTION": "K-Book API é uma API desenvolvida para gerenciar o empréstimo de livros e o acompanhamento de leituras em uma biblioteca ou ambiente acadêmico.\n"
+    "A API permite aos usuários (estudantes e colaboradores) gerenciar suas informações pessoais, empréstimos de livros, e seguir livros de seu interesse.\n"
+    "A API também permite que os colaboradores gerenciem cópias de livros e registrem empréstimos para os estudantes.",
+    "VERSION": "1.0.0",
+    "SERVE_INCLUDE_SCHEMA": False,
 }
