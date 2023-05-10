@@ -10,3 +10,4 @@ class Users(AbstractUser):
     password = models.CharField(max_length=122)
     student = models.BooleanField(default=False)
     blocked = models.BooleanField(default=False)
+    blocked_date = models.DateTimeField(null=True, blank=True)
