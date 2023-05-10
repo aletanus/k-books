@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     "follows",
     "rest_framework",
     "rest_framework_simplejwt",
-    
 ]
 
 MIDDLEWARE = [
@@ -102,6 +101,7 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     },
 }
+
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
