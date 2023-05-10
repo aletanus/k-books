@@ -1,7 +1,13 @@
 # K-BOOKS
 <h4>K-BOOKS - Swagger Documentation: https://k-books.onrender.com/api/docs/swagger-ui/</h4>
 
-## Description
+#
+![image](https://github.com/aletanus/k-books/assets/106698505/7e618435-481c-4242-9fd2-adfebba8c680)
+
+
+
+
+<!-- ## Description
 K-Book API é uma API desenvolvida para gerenciar o empréstimo de livros e o acompanhamento de leituras em uma biblioteca ou ambiente acadêmico. A API permite aos usuários (estudantes e colaboradores) gerenciar suas informações pessoais, empréstimos de livros, e seguir livros de seu interesse. A API também permite que os colaboradores gerenciem cópias de livros e registrem empréstimos para os estudantes.
 
 ### Principais recursos da K-Book API:
@@ -29,3 +35,4 @@ API documentation is provided by Swagger, making it easy to use and understand t
 - Acesse a URL da documentação Swagger, que geralmente é http://localhost:8000/api/docs/swagger-ui/. Isso deve abrir a interface do Swagger, com uma lista de endpoints disponíveis na API.
 - Utilize a interface do Swagger para testar os endpoints da API, realizando operações como criação, atualização e busca de entregas. É possível enviar dados de teste para os endpoints diretamente pela interface do Swagger.
 - Verifique os resultados e certifique-se de que a API esteja funcionando corretamente.
+ -->
