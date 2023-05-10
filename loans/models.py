@@ -12,7 +12,7 @@ class Loan(models.Model):
     date_return = models.DateTimeField(blank=True, null=True)
     user = models.ForeignKey(Users, on_delete=models.CASCADE)
     copy = models.ForeignKey(Copy, on_delete=models.CASCADE)
-    
+
     def save(self, *args, **kwargs):
         if self.date_loan and not self.date_return:
             period = self.copy.period_loan
@@ -29,6 +29,6 @@ def set_user_bloked(sender, instance, created, **kwargs):
             instance.user.blocked = True
             instance.user.save()
             messages.error(
-                instance.user, 
-                f"Você foi bloqueado por atraso na devolução do livro {instance.copy.title}."
+                instance.user,
+                f"Você foi bloqueado por atraso na devolução do livro {instance.copy.title}.",
             )
