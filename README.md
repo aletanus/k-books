@@ -1,4 +1,6 @@
-# k-books
+# K-BOOKS
+<h4>K-BOOKS - Swagger Documentation: https://k-books.onrender.com/api/docs/swagger-ui/</h4>
+
 ## Description
 K-Book API é uma API desenvolvida para gerenciar o empréstimo de livros e o acompanhamento de leituras em uma biblioteca ou ambiente acadêmico. A API permite aos usuários (estudantes e colaboradores) gerenciar suas informações pessoais, empréstimos de livros, e seguir livros de seu interesse. A API também permite que os colaboradores gerenciem cópias de livros e registrem empréstimos para os estudantes.
 
