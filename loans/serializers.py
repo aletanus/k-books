@@ -10,8 +10,14 @@ from users.serializer import UserSerializer
 class LoanSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
     copy = CopySerializer(read_only=True)
-    user_id = serializers.PrimaryKeyRelatedField(source="user", queryset=Users.objects.all(), write_only=True)
-    copy_id = serializers.PrimaryKeyRelatedField(source="copy", queryset=Copy.objects.all(), write_only=True)
+    user_id = serializers.PrimaryKeyRelatedField(
+        source="user", queryset=Users.objects.all(), write_only=True
+    )
+    copy_id = serializers.PrimaryKeyRelatedField(
+        source="copy", queryset=Copy.objects.all(), write_only=True
+    )
+
+    # loan_id = serializers.IntegerField(source="id")
 
     class Meta:
         model = Loan

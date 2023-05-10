@@ -16,12 +16,12 @@ class LoanView(generics.ListCreateAPIView):
 
     def create(self, request, *arg, **kwargs):
         copy = get_object_or_404(Copy, pk=request.data["copy_id"])
-        if copy.total_book == 0:
+        if copy.book_total_copies == 0:
             return Response(
                 {"error": "This book is not available for loan."},
                 status=status.HTTP_400_BAD_REQUEST,
             )
-        copy.total_book -= 1
+        copy.book_total_copies -= 1
         copy.save()
         serializer = LoanSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -63,10 +63,22 @@ class LoanReturnView(generics.UpdateAPIView):
     queryset = Loan.objects.all()
     serializer_class = LoanSerializer
     lookup_field = "pk"
+    permission_classes = [IsStudentOrCollaboratorViewingStudents]
 
     def update(self, request, *args, **kwargs):
         instance = self.get_object()
-        instance.date_return = timezone.now()
+        instance.date_return = timezone.localtime()
         instance.save()
+
+        copy = instance.copy
+        copy.book_total_copies += 1
+        copy.save()
+
+        for user in copy.users.all():
+            loan = Loan.objects.filter(user=user, copy=copy, date_return=None).first()
+            if loan:
+                loan.date_return = instance.date_return
+                loan.save()
+
         serializer = self.get_serializer(instance)
         return Response(serializer.data)
