@@ -2,7 +2,8 @@
 <h4>K-BOOKS - Swagger Documentation: https://k-books.onrender.com/api/docs/swagger-ui/</h4>
 
 #
-![image](https://github.com/aletanus/k-books/assets/106698505/7e618435-481c-4242-9fd2-adfebba8c680)
+![image](https://github.com/aletanus/k-books/assets/106698505/db6b09a5-8023-4f1d-ae7f-9885d39c839b)
+
 
 
 
