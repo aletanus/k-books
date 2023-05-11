@@ -1,6 +1,6 @@
 # K•BOOKS
 <h4>K-BOOKS - Swagger Documentation: https://k-books.onrender.com/api/docs/swagger-ui/</h4>
-<h4>K-Apresenação do projeto: https://www.youtube.com/watch?v=X1Y-W5vsy8g</h4>
+<h4>Apresenação do projeto: https://www.youtube.com/watch?v=X1Y-W5vsy8g</h4>
 
 #
 ![image](https://github.com/aletanus/k-books/assets/106698505/db6b09a5-8023-4f1d-ae7f-9885d39c839b)
